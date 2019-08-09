@@ -1,0 +1,10 @@
+import javax.swing.ImageIcon;
+
+public class CatCharacter extends Characters{
+   
+   public CatCharacter(String name, String trick) {
+      super(name, trick);
+      image = new ImageIcon(getClass().getResource("cat.png"));
+      
+   } 
+}

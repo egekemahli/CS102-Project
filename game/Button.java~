@@ -1,0 +1,74 @@
+import javax.swing.*;
+import java.awt.Color;
+import java.awt.Graphics;
+public class Button extends JButton
+{
+   private boolean moveable;
+   private boolean clickable;
+   private Color color;
+   private boolean iconed;
+   private Icon image;
+   
+   public Button()
+   {
+      moveable = false;
+      clickable = true;
+      setColor(Color.BLACK);
+      setOpaque(true);
+      setFocusPainted(false);
+      setBorderPainted(false);
+      setContentAreaFilled(false);
+      iconed = false;
+      image = null;
+      
+   }
+   
+   public void setMoveable(boolean moveable)
+   {
+      this.moveable = moveable;
+   }
+   
+   public boolean getMoveable()
+   {
+      return moveable;
+   }
+   public void setClickable(boolean clickable)
+   {
+      this.clickable = clickable;
+   }
+   
+   public boolean getClickable()
+   {
+      return clickable;
+   }
+   public void setColor(Color color)
+   {
+      this.color = color;
+      
+   }
+   public void setIconed(boolean b)
+   {
+      iconed  = b;
+   }
+   public void setImage(Icon image){
+      this.image = image ;
+   }
+   public Color getColor() {
+      return color;
+   }
+   
+   public void paintComponent(Graphics g)
+   {
+      
+      if(!iconed)
+      {
+         super.paintComponent(g);
+         g.setColor(color);
+         g.fillOval(0, 0, getSize().width-1, getSize().height-1);
+      }
+      else{
+         super.paintComponent(g); 
+      }
+      repaint();
+   }
+}

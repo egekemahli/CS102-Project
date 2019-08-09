@@ -1,0 +1,34 @@
+import java.io.*;
+import java.io.IOException;
+
+public class ReaderForMaker  
+{
+   private int levelNumber;
+
+   private String levelCode2;
+   
+   public ReaderForMaker(int levelNumber) throws IOException
+   {
+      this.levelNumber = levelNumber;
+
+      convertInputStreamToString2();
+   }
+   
+   
+   public void convertInputStreamToString2() throws IOException
+   {
+      BufferedReader br = new BufferedReader(new FileReader("CreatedLevel"+levelNumber+".txt"));  
+      String st;
+      while ((st = br.readLine()) != null)
+      {
+         levelCode2 = st;
+      }
+      br.close();
+   }
+   
+
+   public String getLevelCode2()
+   {
+      return levelCode2;
+   }
+}

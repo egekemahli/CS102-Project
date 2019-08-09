@@ -1,0 +1,10 @@
+import javax.swing.ImageIcon;
+
+public class DinoCharacter extends Characters{
+   
+   public DinoCharacter(String name, String trick) {
+      super(name, trick);
+      image = new ImageIcon(getClass().getResource("dino.png"));
+      
+   }
+}

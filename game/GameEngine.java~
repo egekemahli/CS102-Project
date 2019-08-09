@@ -1,0 +1,47 @@
+import java.awt.*;
+import java.io.IOException;
+import javax.swing.*;
+
+public class GameEngine{
+   
+   public static void main(String[] args) throws IOException {
+      
+      PlayGamePage playGamePanel = new PlayGamePage();
+      CharacterSelect characterSelect = new CharacterSelect();
+      LevelsPane levelPanel = new LevelsPane();
+      AboutUs aboutUsPanel = new AboutUs();
+      
+      JPanel game = new JPanel();
+      
+      game.setSize(800,600);
+      
+      game.add(playGamePanel);
+      
+      game.add(aboutUsPanel);
+      game.add(new Game(2,2));
+      
+      game.add(characterSelect);
+      
+      game.add(levelPanel);
+      
+      aboutUsPanel.setVisible(false);
+      levelPanel.setVisible(false);
+      characterSelect.setVisible(false);
+      
+      playGamePanel.linkPanels( characterSelect, playGamePanel.getPlayGame() );
+      
+      playGamePanel.linkPanels( aboutUsPanel, playGamePanel.getAboutUs() );
+      aboutUsPanel.linkPanels( playGamePanel, aboutUsPanel.getExit() );
+      
+      characterSelect.linkPanels(playGamePanel, characterSelect.getBackBut());
+      characterSelect.linkPanels(levelPanel, characterSelect.getNextBut());
+      levelPanel.linkPanels(characterSelect, levelPanel.getBack() );
+      
+      game.setVisible(true);
+   }
+   
+   @Override
+   public void remove (Component c) {
+      super.remove(c);
+   }
+}

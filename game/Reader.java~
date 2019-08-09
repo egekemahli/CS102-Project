@@ -1,0 +1,34 @@
+import java.io.*;
+import java.io.IOException;
+
+public class Reader  
+{
+   private int levelNumber;
+   private String levelCode;
+
+   
+   public Reader(int levelNumber) throws IOException
+   {
+      this.levelNumber = levelNumber;
+      convertInputStreamToString();
+
+   }
+   
+   public void convertInputStreamToString() throws IOException
+   {
+      BufferedReader br = new BufferedReader(new FileReader("level"+levelNumber+".txt"));  
+      String st;
+      while ((st = br.readLine()) != null)
+      {
+         levelCode = st;
+      }
+      br.close();
+   }
+
+   public String getLevelCode()
+   {
+      return levelCode;
+   }
+   
+  
+}

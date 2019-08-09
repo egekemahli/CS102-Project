@@ -1,0 +1,24 @@
+import javax.swing.ImageIcon;
+public abstract class Characters {
+   
+   private String name;
+   private String trick;
+   protected ImageIcon image;
+   
+   public Characters(String name, String trick) {
+      
+      this.name = name ;
+      this.trick = trick;
+      image = new ImageIcon();
+   }
+   
+   public String getName() {
+      return name;
+   }
+   public String getTrick() {
+      return trick;
+   }
+   public ImageIcon getCharacterImage() {
+      return image;
+   }
+}

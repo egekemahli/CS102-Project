@@ -1,0 +1,9 @@
+import javax.swing.ImageIcon;
+
+public class DogCharacter extends Characters {
+   
+   public DogCharacter(String name, String trick) {
+      super(name, trick);
+      image = new ImageIcon(getClass().getResource("dog.png"));
+   }
+}
